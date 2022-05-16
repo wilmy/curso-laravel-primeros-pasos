@@ -12,7 +12,7 @@
     <form action="{{ route('post.update', $post->id) }}" method="post" enctype="multipart/form-data">
         @method('PUT')
 
-        @include('dashboard.fragment._post-form')
+        @include('dashboard.post._post-form')
     </form>
 
 @endsection
