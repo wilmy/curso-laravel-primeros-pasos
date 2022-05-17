@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ControllersDashboard\PostController;
 use App\Http\Controllers\ControllersDashboard\CategoriesController;
+use App\Http\Controllers\ControllersWeb\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +20,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'admin']], function(){
 
    Route::get('/', function () {
@@ -32,5 +31,15 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'admin']], funct
         'categorias' => CategoriesController::class,
     ]);
 });
+
+
+Route::group(['prefix' => 'blog'], function(){
+
+    Route::controller(BlogController::class)->group(function(){
+        Route::get('/', "index")->name('web.blog.index');
+        Route::get('/{post}', "show")->name('web.blog.show');
+    }); 
+ 
+ });
 
 require __DIR__.'/auth.php';
