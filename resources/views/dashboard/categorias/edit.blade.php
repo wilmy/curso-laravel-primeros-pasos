@@ -1,4 +1,4 @@
-@extends('dashboard.layaout')
+@extends('layouts.layout')
 
 @section('title', 'Categoria: '. $categoria->title)
 
@@ -9,7 +9,7 @@
 
     @include('dashboard.fragment._errors-form')
 
-    <form action="{{ route('categorias.update', $categoria->id) }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('categorias.update', $categoria->id) }}" method="post">
         @method('PUT')
 
         @include('dashboard.categorias._categorias-form')

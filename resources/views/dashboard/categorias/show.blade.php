@@ -1,4 +1,4 @@
-@extends('dashboard.layaout')
+@extends('layouts.layout')
 
 @section('title', 'Detalles de: '.$categoria->title)
 

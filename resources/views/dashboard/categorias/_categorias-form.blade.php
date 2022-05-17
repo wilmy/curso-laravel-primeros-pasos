@@ -1,13 +1,11 @@
 @csrf
-<label>Titulo</label><br>
-<input type="text" name="title" id="" value="{{ old("title", $categoria->title) }}">
+<label>Titulo</label>
+<input type="text" name="title" id="" class="form-control"  value="{{ old("title", $categoria->title) }}">
+
+<label>Slug</label>
+<input type="text" name="slug" id="" class="form-control"  value="{{ old("slug", $categoria->slug) }}">
 
 <br>
-<label>Slug</label><br>
-<input type="text" name="slug" id="" value="{{ old("slug", $categoria->slug) }}">
-
-<br>
-<br>
-<button type="submit">
+<button class="btn btn-success" type="submit">
     Guardar
 </button>

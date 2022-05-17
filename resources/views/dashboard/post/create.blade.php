@@ -1,4 +1,4 @@
-@extends('dashboard.layaout')
+@extends('layouts.layout')
 
 @section('title', 'Post Create')
 
