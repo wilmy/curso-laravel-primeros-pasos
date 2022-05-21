@@ -28,8 +28,8 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        $categoria = new Category();
-        return view('dashboard.categorias.create', compact('categoria'));
+        $category = new Category();
+        return view('dashboard.categorias.create', compact('category'));
     }
 
     /**
@@ -41,7 +41,7 @@ class CategoriesController extends Controller
     public function store(StoreRequest $request)
     {
         //Valores resibidos
-        $data = $request->all();
+        $data = $request->validated();
         Category::create($data);
         
         return redirect()->route('categorias.index')->with('status', "Registro creado correctamente");
@@ -55,7 +55,8 @@ class CategoriesController extends Controller
      */
     public function show(Category $categoria)
     {
-        return view('dashboard.categorias.show', compact('categoria'));
+        $category = $categoria;
+        return view('dashboard.categorias.show', compact('category'));
     }
 
     /**
@@ -66,7 +67,8 @@ class CategoriesController extends Controller
      */
     public function edit(Category $categoria)
     {
-        return view('dashboard.categorias.edit', compact('categoria'));
+        $category = $categoria;
+        return view('dashboard.categorias.edit', compact('category'));
     }
 
     /**
